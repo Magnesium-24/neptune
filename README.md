@@ -27,13 +27,11 @@ curl -X POST \
       "parallelism" : "MEDIUM",
       "updateSingleCardinalityProperties" : "TRUE",
       "queueRequest" : "TRUE",
-        "userProvidedEdgeIds":"False"
-
-    }'
+        "userProvidedEdgeIds":"False"}'
     
     
 ## run bi query
 
-run bi
+run RUN_BI_QUERY.py
 
 
