@@ -360,6 +360,25 @@ print(end - start)
 
 
 
+start = time.time()
+driver = GraphDatabase.driver(uri, auth=("USERNAME", json.dumps(auth_obj)), encrypted=True)
+
+result = driver.session().run("""MATCH (person1:Person {name_ID:'26388279068088' })-[:knows]-(mutualFriend:Person)-[:knows]-(person2:Person)-[:hasInterest]->(:Tag {name: 'Celine_Dion'})
+WHERE person1 <> person2
+  AND NOT (person1)-[:knows]-(person2)
+RETURN person2.name_ID AS person2Id, count(DISTINCT mutualFriend) AS mutualFriendCount
+ORDER BY mutualFriendCount DESC, person2Id ASC
+LIMIT 1
+
+""")
+print(result.single())
+end = time.time()
+print('bi18')
+print(end - start)
+
+
+
+
 
 
 
