@@ -147,7 +147,7 @@ WITH person, message, count(likes) AS likeCount
 WITH person, message, likeCount, count(reply) AS replyCount
 WITH person, count(message) AS messageCount, sum(likeCount) AS likeCount, sum(replyCount) AS replyCount
 RETURN
-  person.id,
+  person.name_ID,
   replyCount,
   likeCount,
   messageCount,
